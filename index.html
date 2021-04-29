@@ -75,7 +75,15 @@
         </form>
 
         <hr class="my-4" />
-        <p>IN THIS SPACE I SHOULD MAKE THE LIST SHOWS UP</p>
+        <div class="row">
+          <ul id="list-names" class="list-group text-center">
+            <!-- <li class="list-group-item"></li>
+            <li class="list-group-item"></li>
+            <li class="list-group-item"></li>
+            <li class="list-group-item"></li>
+            <li class="list-group-item"></li> -->
+          </ul>
+        </div>
         <a id="assign-btn" class="btn btn-primary btn-lg" href="#" role="button"
           >ASSIGN</a
         >
@@ -168,14 +176,23 @@
       // find a way to get the user input and fill a list with the new name.
 
       //grabbing the name
-      let input = document.querySelector("#input-name");
-     
-      input.addEventListener("keyup", function (e) {
+      let inputName = document.querySelector("#input-name");
+
+      inputName.addEventListener("keyup", function (e) {
         if (e.keyCode === 13) {
-          
           console.log(e.target.value);
-          //Store the names in an array 
-          input.value = "";
+
+          //Get the Ul named listNames
+          let listNames = document.getElementById("list-names");
+
+          //Creating list item with the names
+          let newLi = document.createElement("li");
+
+          const addNewName = function () {
+            newLi.innerText = inputName;
+            listNames.appendChild(newLi);
+            input.value = "";
+          };
         }
       });
 
